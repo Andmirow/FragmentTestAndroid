@@ -24,9 +24,9 @@ class ReceiverFragment : androidx.fragment.app.Fragment(com.example.fragmenttest
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        textView = view.findViewById(R.id.textView)
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<Button>(R.id.senderButton).setOnClickListener{
+        textView = view.findViewById(R.id.textView)
+        view.findViewById<Button>(R.id.readButton).setOnClickListener{
             onClickRead()
         }
     }
