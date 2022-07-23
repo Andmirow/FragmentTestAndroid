@@ -7,14 +7,28 @@ import androidx.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
 
-    private val _message: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
-    }
-
-    val message: LiveData<String> = _message
 
     fun setMessage(message: String) {
-        _message.value = message
+        Message.message.value = message
     }
+
+    fun getMessage(): String? {
+        return Message.message.value
+    }
+
+
+
+//    private val _message: MutableLiveData<Message> by lazy {
+//        MutableLiveData<Message>()
+//    }
+//
+//    val message: LiveData<Message> = _message
+//
+//    fun setMessage(message: Message) {
+//        _message.value = message
+//    }
+
+
+
 
 }

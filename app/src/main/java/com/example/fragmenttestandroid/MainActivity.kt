@@ -2,7 +2,7 @@ package com.example.fragmenttestandroid
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
+import com.example.fragmenttestandroid.SenderFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         if(savedInstanceState == null){
             getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.fragment_container_view,SenderFragment::class.java, null)
+                .add(R.id.fragment_container_view, SenderFragment::class.java, null)
                 .commit()
         }
 
