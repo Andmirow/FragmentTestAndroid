@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProject/FragmentTestAndroid/app/src/main/res/drawable/minus.xml" value="0.2775" />
+        <entry key="..\:/AndroidProject/FragmentTestAndroid/app/src/main/res/layout/achievement_card.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidProject/FragmentTestAndroid/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/AndroidProject/FragmentTestAndroid/app/src/main/res/layout/employee_card.xml" value="0.1" />
         <entry key="..\:/AndroidProject/FragmentTestAndroid/app/src/main/res/layout/fragment_blank.xml" value="0.1" />
         <entry key="..\:/AndroidProject/FragmentTestAndroid/app/src/main/res/layout/fragment_content.xml" value="0.27717391304347827" />
         <entry key="..\:/AndroidProject/FragmentTestAndroid/app/src/main/res/layout/fragment_receiver.xml" value="0.1" />
