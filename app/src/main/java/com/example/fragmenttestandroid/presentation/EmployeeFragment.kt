@@ -34,11 +34,8 @@ class EmployeeFragment :Fragment(R.layout.employee_card) {
         val locationView = view.findViewById<TextView>(R.id.location)
         val DateOfBirthView = view.findViewById<TextView>(R.id.dateOfBirth)
 
-        enebledView.text = if (employee.enebled){
-            R.string.online.toString()
-        }else
-            R.string.offline.toString()
 
+        enebledView.text = if (employee.enebled) "В сети" else "Не в сети"
         fioView.text = employee.name
         positionView.text = employee.position
         locationView.text = employee.location
