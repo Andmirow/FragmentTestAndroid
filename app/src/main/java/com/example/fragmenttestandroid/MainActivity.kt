@@ -10,23 +10,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
-
-    }
-
-
-    override fun onStart() {
-        super.onStart()
         buttonStart.setOnClickListener{(openFragment())}
     }
 
-    fun openFragment(){
 
+    fun openFragment(){
             getSupportFragmentManager()
                 .beginTransaction()
                 .setCustomAnimations(R.anim.up_in,R.anim.up_out)
-                .add(R.id.start_view, SenderFragment::class.java, null)
+                .add(R.id.start_view, AnimationFragment::class.java, null)
                 .commit()
-
     }
 
 
