@@ -16,7 +16,6 @@ class SenderFragment : Fragment(com.example.fragmenttestandroid.R.layout.fragmen
 
     private lateinit var messageView: EditText
     private val viewModel= MainViewModel()
-    //private lateinit var messageObj: Message
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         messageView = view.findViewById(R.id.et_message)
@@ -29,15 +28,7 @@ class SenderFragment : Fragment(com.example.fragmenttestandroid.R.layout.fragmen
     private fun sendMessage(savedInstanceState: Bundle?){
 
         var test = messageView.text.toString()
-
         viewModel.setMessage(test)
-
-//        messageObj = Message(messageView.text.toString())
-//        viewModel.message.observe(viewLifecycleOwner) { value ->
-//            messageObj
-//        }
-
-        //viewModel.setMessage(messageObj)
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container_view, ReceiverFragment()).commit()
     }

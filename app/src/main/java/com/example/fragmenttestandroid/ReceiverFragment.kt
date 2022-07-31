@@ -26,8 +26,6 @@ class ReceiverFragment : androidx.fragment.app.Fragment(R.layout.fragment_receiv
         if (mess != null){
             textView.text = mess
         }
-        //viewModel.message.observe(viewLifecycleOwner) { value -> textView.text = value }
-
 
         view.findViewById<Button>(R.id.readButton).setOnClickListener{
             onClickRead()

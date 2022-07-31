@@ -16,19 +16,4 @@ class MainViewModel : ViewModel() {
         return Message.message.value
     }
 
-
-
-//    private val _message: MutableLiveData<Message> by lazy {
-//        MutableLiveData<Message>()
-//    }
-//
-//    val message: LiveData<Message> = _message
-//
-//    fun setMessage(message: Message) {
-//        _message.value = message
-//    }
-
-
-
-
 }

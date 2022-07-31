@@ -17,10 +17,4 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
-
-//    private fun addFragmentA(){
-//        supportFragmentManager.beginTransaction().add(R.id., ContentFragmentKt).commit()
-//    }
-
 }
