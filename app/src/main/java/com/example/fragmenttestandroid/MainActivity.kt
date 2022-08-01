@@ -2,7 +2,6 @@ package com.example.fragmenttestandroid
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.fragmenttestandroid.SenderFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -10,7 +9,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         if(savedInstanceState == null){
-            getSupportFragmentManager()
+            supportFragmentManager
                 .beginTransaction()
                 .add(R.id.fragment_container_view, SenderFragment::class.java, null)
                 .commit()

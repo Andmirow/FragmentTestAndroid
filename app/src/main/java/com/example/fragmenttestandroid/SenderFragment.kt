@@ -6,7 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.*
 
-class SenderFragment : Fragment(com.example.fragmenttestandroid.R.layout.fragment_sender) {
+class SenderFragment : Fragment(R.layout.fragment_sender) {
 
     private lateinit var messageView: EditText
     private val viewModel : MainViewModel by activityViewModels()
@@ -15,20 +15,15 @@ class SenderFragment : Fragment(com.example.fragmenttestandroid.R.layout.fragmen
         messageView = view.findViewById(R.id.et_message)
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<Button>(R.id.senderButton).setOnClickListener{
-            sendMessage(savedInstanceState)
+            sendMessage()
         }
     }
 
-    private fun sendMessage(savedInstanceState: Bundle?){
-
-        var textMessage = messageView.text.toString()
-
+    private fun sendMessage(){
+        val textMessage = messageView.text.toString()
         viewModel.select(textMessage)
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container_view, ReceiverFragment()).commit()
-
     }
-
-
 
 }

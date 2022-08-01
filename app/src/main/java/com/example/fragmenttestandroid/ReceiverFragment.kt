@@ -12,31 +12,17 @@ class ReceiverFragment : androidx.fragment.app.Fragment(R.layout.fragment_receiv
     private lateinit var textView: TextView
     private val viewModel : MainViewModel by activityViewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         textView = view.findViewById(R.id.textView)
 
-        viewModel.selected.observe(viewLifecycleOwner, Observer<String> { message ->
+        viewModel.selected.observe(viewLifecycleOwner, Observer { message ->
             textView.text = message
         })
 
 
         view.findViewById<Button>(R.id.readButton).setOnClickListener{
-            onClickRead()
-        }
-    }
-
-
-    fun onClickRead(){
-        if (textView!=null){
             textView.text = "All messages is read"
         }
     }
-
-
-
 }
