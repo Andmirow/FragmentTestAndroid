@@ -1,34 +1,81 @@
 package com.example.fragmenttestandroid
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class EmployeeAdapter : RecyclerView.Adapter<EmployeesViewHolder>() {
 
-    private val employees = Employee.getMockEmployees()
+const val EMPLOYEE_TYPE = 1
+const val DEPARTAMET_TYPE = 2
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmployeesViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.employee_card,parent,false)
-        return EmployeesViewHolder(view)
-    }
 
-    override fun onBindViewHolder(holder: EmployeesViewHolder, position: Int) {
-        val employee = employees[position]
-        with(holder){
-            fullNameTextView.text = employee.name
-            departmentTextView.text = employee.department
-            Glide.with(photoImageView.context)
-                .load(employee.photoUrl)
-                .centerCrop()
-                .into(photoImageView)
+class EmployeeAdapter(private val deleteAction :(Int)-> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    private val employees = mutableListOf<Any>()
+
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        when(viewType){
+            EMPLOYEE_TYPE ->{
+                val view = LayoutInflater.from(parent.context).inflate(R.layout.employee_card,parent,false)
+                return EmployeesViewHolder(view)
+            }
+            DEPARTAMET_TYPE ->{
+                val view = LayoutInflater.from(parent.context).inflate(R.layout.departament,parent,false)
+                return DepartamentViewHolder(view)
+            }
+            else -> throw Exception("uncomon type holder")
         }
 
     }
 
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        when(holder){
+            is EmployeesViewHolder -> {
+                with(holder) {
+                    val employee = employees[position] as Employee
+                    fullNameTextView.text = employee.name
+                    departmentTextView.text = employee.department
+                    Glide.with(photoImageView.context)
+                        .load(employee.photoUrl)
+                        .centerCrop()
+                        .into(photoImageView)
+
+                    deleteButtonView.setOnClickListener {
+                        deleteAction(position)
+                    }
+                }
+            }
+            is DepartamentViewHolder ->{
+                holder.departamentTitleView.text = (employees[position] as Departament).title
+            }
+        }
+
+    }
+
+
+
     override fun getItemCount(): Int {
         return employees.size
     }
+
+    override fun getItemViewType(position: Int): Int {
+        return when(employees[position]){
+            is Employee -> EMPLOYEE_TYPE
+            is Departament -> DEPARTAMET_TYPE
+            else -> throw Exception("not support type")
+        }
+    }
+
+    fun reliadList(data : List<Any>){
+        employees.clear()
+        employees.addAll(data)
+        notifyDataSetChanged()
+    }
+
+
+
 }
