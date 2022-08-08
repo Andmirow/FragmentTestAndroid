@@ -1,17 +1,17 @@
 package com.example.fragmenttestandroid
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
 
 const val EMPLOYEE_TYPE = 1
 const val DEPARTAMET_TYPE = 2
-
-
-
 class EmployeeAdapter(private val deleteAction :(Int)-> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val employees = mutableListOf<Any>()
@@ -33,6 +33,7 @@ class EmployeeAdapter(private val deleteAction :(Int)-> Unit) : RecyclerView.Ada
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        Log.d(TAG, "bind, position = " + position);
         when(holder){
             is EmployeesViewHolder -> {
                 with(holder) {
@@ -70,12 +71,20 @@ class EmployeeAdapter(private val deleteAction :(Int)-> Unit) : RecyclerView.Ada
         }
     }
 
-    fun reliadList(data : List<Any>){
+    fun reloadList(data : List<Any>){
+
+        val mainDiffUtilCallback = MainDiffUtilCallback(employees,data)
+        val DiffResult = DiffUtil.calculateDiff(mainDiffUtilCallback)
         employees.clear()
         employees.addAll(data)
-        notifyDataSetChanged()
+        DiffResult.dispatchUpdatesTo(this)
+        //notifyDataSetChanged()
     }
 
 
 
+
 }
+
+
+

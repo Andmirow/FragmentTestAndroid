@@ -21,5 +21,16 @@ class Employee (
             )
     }
 
+    override fun equals(other: Any?): Boolean {
+        if (other is Employee){
+            return id == (other as Employee).id
+        }
+        return false
+    }
 
+    override fun hashCode(): Int {
+        var result = id.hashCode()
+        result *= 31 + (id as Int)
+        return result
+    }
 }

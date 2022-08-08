@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.addItemDecoration(dividerItemDecorationHORIZONTAL)
 
         viewModel.employees.observe(this){
-            adapter.reliadList(it)
+            adapter.reloadList(it)
         }
 
         fab.setOnClickListener {
