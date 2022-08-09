@@ -1,4 +1,4 @@
-package com.example.fragmenttestandroid
+package com.example.fragmenttestandroid.hw5
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

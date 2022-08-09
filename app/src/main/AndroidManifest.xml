@@ -22,6 +22,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".hw5.ActivityHw5"
+            />
+        <activity
+            android:name=".hw6.ActivityHw6"
+            />
+        <activity
+            android:name=".hw7.ActivityHw7"
+            />
+        <activity
+            android:name=".hw8.ActivityHw8"
+            />
     </application>
 
 </manifest>

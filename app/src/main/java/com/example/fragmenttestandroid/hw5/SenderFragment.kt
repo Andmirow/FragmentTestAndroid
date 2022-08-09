@@ -1,10 +1,11 @@
-package com.example.fragmenttestandroid
+package com.example.fragmenttestandroid.hw5
 
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.*
+import com.example.fragmenttestandroid.R
 
 class SenderFragment : Fragment(R.layout.fragment_sender) {
 

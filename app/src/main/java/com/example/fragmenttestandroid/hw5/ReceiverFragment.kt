@@ -1,4 +1,4 @@
-package com.example.fragmenttestandroid
+package com.example.fragmenttestandroid.hw5
 
 import android.os.Bundle
 import android.view.View
@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import com.example.fragmenttestandroid.R
 
 class ReceiverFragment : androidx.fragment.app.Fragment(R.layout.fragment_receiver) {
 
