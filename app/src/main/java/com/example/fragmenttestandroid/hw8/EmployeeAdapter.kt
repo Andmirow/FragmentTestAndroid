@@ -8,10 +8,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.fragmenttestandroid.R
+import com.example.fragmenttestandroid.hw5.ReceiverFragment
 
 const val EMPLOYEE_TYPE = 1
 const val DEPARTAMET_TYPE = 2
-class EmployeeAdapter(private val deleteAction :(Int)-> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class EmployeeAdapter(private val deleteAction :(Int)-> Unit, private val setAction :(Employee,Int)-> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val employees = mutableListOf<Any>()
 
@@ -32,7 +33,7 @@ class EmployeeAdapter(private val deleteAction :(Int)-> Unit) : RecyclerView.Ada
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        Log.d(TAG, "bind, position = " + position);
+        Log.d(TAG, "bind, position = " + position)
         when(holder){
             is EmployeesViewHolder -> {
                 with(holder) {
@@ -47,6 +48,13 @@ class EmployeeAdapter(private val deleteAction :(Int)-> Unit) : RecyclerView.Ada
                     deleteButtonView.setOnClickListener {
                         deleteAction(position)
                     }
+                    itemView.setOnClickListener{
+                        setAction(employee,position)
+                        //return@setOnLongClickListener true
+                    }
+//                    itemView.setOnLongClickListener{1
+//                        setAction(employee,position)
+//                    }
                 }
             }
             is DepartamentViewHolder ->{

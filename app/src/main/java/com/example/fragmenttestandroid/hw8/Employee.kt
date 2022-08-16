@@ -1,11 +1,15 @@
 package com.example.fragmenttestandroid.hw8
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 class Employee (
     val id : Long,
-    val name : String,
-    val photoUrl : String,
-    val department : String
-) {
+    var name : String,
+    var photoUrl : String,
+    var department : String
+) : Parcelable{
 
 
     companion object{

@@ -20,4 +20,12 @@ class MainViewModel : ViewModel() {
         }
     }
 
+    fun setEmployee(indexPosition : Int , employee: Employee) {
+        employees.value = employees.value?.toMutableList()?.apply {
+            set(indexPosition, employee)
+        }
+    }
+
+
+
 }

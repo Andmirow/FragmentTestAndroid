@@ -34,5 +34,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ActivityHw8:: class.java)
             startActivity(intent)
         }
+
+        homework12.setOnClickListener {
+//            val intent = Intent(this, ActivityHw8:: class.java)
+//            startActivity(intent)
+        }
     }
 }
